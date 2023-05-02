@@ -1,20 +1,15 @@
 const moves = ['north', 'north', 'west', 'west', 'north', 'east','north']  
-const finalPosition = function (moves) {
-    for(s in moves){
-        if(s === 'west'){
-            moves[0]--;
-        }
-        else if(s==='east'){
-            moves[0]++;
-        }
-        else if(s==='south'){
-            moves[0]--;
-        }
-        else if(s==='north'){
-            moves[0]++;
-        }
-        return moves;
-    }
+
+function finalPosition(moves){
+  let paradePath = [0,0];
+
+  for(let move of moves){
+    if(move === 'north'){ paradePath[1]++ }
+    else if (move === 'south'){ paradePath[1]--; }
+    else if (move === 'east'){ paradePath[0]++; }
+    else if (move === 'west'){ paradePath[0]--; }
   }
- 
-  console.log(finalPosition(moves))
+  return paradePath;
+}
+
+console.log(finalPosition(moves));
